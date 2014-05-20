@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>harbour-usb-switch.png</file>
+    </qresource>
+</RCC>
