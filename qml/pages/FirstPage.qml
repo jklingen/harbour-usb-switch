@@ -1,6 +1,6 @@
 /*
     USB Switch - a simple USB mode switcher for SailfishOS
-    Copyright (C) 2014 Jens Klingen
+    Copyright (C) 2014 - 2015 Jens Klingen
 
     https://github.com/jklingen/harbour-usb-switch
 

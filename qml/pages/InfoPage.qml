@@ -1,6 +1,6 @@
 /*
     USB Switch - a simple USB mode switcher for SailfishOS
-    Copyright (C) 2014 Jens Klingen
+    Copyright (C) 2014 - 2015 Jens Klingen
 
     https://github.com/jklingen/harbour-usb-switch
 
@@ -70,7 +70,7 @@ Page {
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignRight
                 textFormat: Text.RichText
-                text: "<strong>Version 0.2</strong><br>Copyright © 2014 Jens Klingen"
+                text: "<strong>Version 0.2</strong><br>Copyright © 2014 - 2015 Jens Klingen"
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
             }
