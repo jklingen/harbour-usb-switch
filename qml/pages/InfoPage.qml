@@ -114,11 +114,17 @@ Page {
             Button {
                 id: github
                 anchors.top: feedback.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: 'Get in touch'
+                anchors.right: parent.horizontalCenter
+                text: 'Github'
                 onClicked: Qt.openUrlExternally("https://github.com/jklingen/harbour-usb-switch/issues");
             }
-
+            Button {
+                id: twitter
+                anchors.top: feedback.bottom
+                anchors.left: parent.horizontalCenter
+                text: 'Twitter'
+                onClicked: Qt.openUrlExternally("https://twitter.com/jklingen");
+            }
 
             Label {
                 id: license
