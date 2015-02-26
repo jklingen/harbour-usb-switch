@@ -34,8 +34,6 @@
 
 #include <QtQml>
 #include <sailfishapp.h>
-#include "shell.h"
-
 
 int main(int argc, char *argv[])
 {
@@ -48,7 +46,6 @@ int main(int argc, char *argv[])
     //
     // To display the view, call "show()" (will show fullscreen on device).
 
-    qmlRegisterType<Shell>("harbour.usb.switch.shell", 1, 0, "Shell");
     return SailfishApp::main(argc, argv);
 }
 

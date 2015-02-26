@@ -20,7 +20,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import harbour.usb.switch.shell 1.0
 
 
 IconButton {
@@ -30,12 +29,12 @@ IconButton {
 
     width:parent.width
     height: page.height / 3
-    icon.source:'image://theme/' + iconName + '?' + ((parent.pressed || app.current_mode === modeName) ? Theme.highlightColor : Theme.primaryColor)
-    onClicked: shells.switchMode(modeName)
+    icon.source:'image://theme/' + iconName + '?' + ((parent.pressed || usbControl.currentMode === modeName) ? Theme.highlightColor : Theme.primaryColor)
+    onClicked: usbControl.setMode(modeName)
     Label {
         y: 2*Theme.paddingLarge
         anchors.horizontalCenter: parent.horizontalCenter
-        color: (parent.pressed || app.current_mode === parent.modeName) ? Theme.highlightColor : Theme.primaryColor
+        color: (parent.pressed || usbControl.currentMode === parent.modeName) ? Theme.highlightColor : Theme.primaryColor
         text:parent.text
     }
     Rectangle {

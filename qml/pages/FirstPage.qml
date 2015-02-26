@@ -21,7 +21,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import harbour.usb.switch.shell 1.0
+import org.nemomobile.dbus 2.0
+
 import "../components"
 
 Page {
@@ -64,12 +65,6 @@ Page {
 
         }
     }
-
-    Shells {
-        id:shells
-    }
-
-
 
 }
 

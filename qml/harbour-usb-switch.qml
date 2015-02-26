@@ -20,6 +20,9 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import org.nemomobile.dbus 2.0
+
+import "components"
 import "pages"
 
 ApplicationWindow
@@ -28,6 +31,60 @@ ApplicationWindow
     property string current_mode: ''
     initialPage: Component { FirstPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+
+    DBusInterface {
+
+        id: usbControl
+        service: "com.meego.usb_moded"
+        path: "/com/meego/usb_moded"
+        iface: "com.meego.usb_moded"
+        bus: DBus.SystemBus
+        signalsEnabled: true
+
+        property string currentMode: ''
+        property var availableModes: []
+
+        function setMode(mode) {
+            console.log("setting mode to " + mode)
+            call('set_mode', [mode]);
+        }
+
+        function getMode() {
+            console.log("getting current mode " + currentMode)
+            return currentMode;
+        }
+
+        function sig_usb_state_ind(mode) {
+            console.log("mode has changed to " + mode)
+            currentMode = mode;
+        }
+
+        function init() {
+            if(currentMode.length === 0) {
+                console.debug("requesting available modes");
+                typedCall('get_modes', [], function (modes) {
+                    console.debug("available modes are " + modes);
+                    availableModes = modes;
+                });
+                console.debug("requesting current mode");
+                typedCall('mode_request', [], function (mode) {
+                    console.debug("current mode is " + mode);
+                    currentMode = mode;
+                });
+            }
+        }
+
+    }
+
+    Timer {
+        running: true
+        interval: 500
+        onTriggered: {
+            usbControl.init();
+        }
+    }
 }
+
 
 

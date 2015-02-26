@@ -20,7 +20,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import harbour.usb.switch.shell 1.0
 import "../components"
 
 CoverBackground {
@@ -31,17 +30,17 @@ CoverBackground {
         Image {
             y: Theme.paddingLarge*2
             anchors.horizontalCenter:parent.horizontalCenter
-            visible: app.current_mode === 'charging_only'
+            visible: usbControl.currentMode === 'charging_only'
             source: "image://theme/icon-l-charging?" + Theme.highlightColor
         }
         Image {
             anchors.horizontalCenter:parent.horizontalCenter
-            visible: app.current_mode === 'pc_suite'
+            visible: usbControl.currentMode === 'pc_suite'
             source: "image://theme/icon-l-computer?" + Theme.highlightColor
         }
         Image {
             anchors.horizontalCenter:parent.horizontalCenter
-            visible: app.current_mode === 'developer_mode'
+            visible: usbControl.currentMode === 'developer_mode'
             source: "image://theme/icon-l-developer-mode?" + Theme.highlightColor
         }
         Image {
@@ -51,52 +50,47 @@ CoverBackground {
     }
 
     CoverActionList {
-        enabled: app.current_mode === 'pc_suite'
+        enabled: usbControl.currentMode === 'pc_suite'
 
         CoverAction {
             iconSource: "image://theme/icon-l-charging"
-            onTriggered: shells.switchMode('charging_only')
+            onTriggered: usbControl.setMode('charging_only')
 
         }
 
         CoverAction {
             iconSource: "image://theme/icon-l-developer-mode"
-            onTriggered: shells.switchMode('developer_mode')
+            onTriggered: usbControl.setMode('developer_mode')
         }
     }
 
     CoverActionList {
-        enabled: app.current_mode === 'charging_only'
+        enabled: usbControl.currentMode === 'charging_only'
 
         CoverAction {
             iconSource: "image://theme/icon-l-computer"
-            onTriggered: shells.switchMode('pc_suite')
+            onTriggered: usbControl.setMode('pc_suite')
         }
 
         CoverAction {
             iconSource: "image://theme/icon-l-developer-mode"
-            onTriggered: shells.switchMode('developer_mode')
+            onTriggered: usbControl.setMode('developer_mode')
         }
     }
 
     CoverActionList {
-        enabled: app.current_mode === 'developer_mode'
+        enabled: usbControl.currentMode === 'developer_mode'
 
         CoverAction {
             iconSource: "image://theme/icon-l-computer"
-            onTriggered: shells.switchMode('pc_suite')
+            onTriggered: usbControl.setMode('pc_suite')
         }
 
         CoverAction {
             iconSource: "image://theme/icon-l-charging"
-            onTriggered: shells.switchMode('charging_only')
+            onTriggered: usbControl.setMode('charging_only')
 
         }
-    }
-
-
-    Shells {
-        id:shells
     }
 
 }

@@ -14,8 +14,7 @@ TARGET = harbour-usb-switch
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-usb-switch.cpp \
-    src/shell.cpp
+SOURCES += src/harbour-usb-switch.cpp
 
 OTHER_FILES += qml/harbour-usb-switch.qml \
     qml/cover/CoverPage.qml \
@@ -28,7 +27,6 @@ OTHER_FILES += qml/harbour-usb-switch.qml \
     qml/js/usb-switch.js \
     qml/components/ModeButton.qml \
     qml/pages/InfoPage.qml \
-    qml/components/Shells.qml \
     resources/harbour-usb-switch.png
 
 # to disable building translations every time, comment out the
@@ -36,8 +34,7 @@ OTHER_FILES += qml/harbour-usb-switch.qml \
 CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-usb-switch-de.ts
 
-HEADERS += \
-    src/shell.h
+HEADERS +=
 
 RESOURCES += \
     resources/resources.qrc
