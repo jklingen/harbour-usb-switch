@@ -57,7 +57,7 @@ Page {
                 wrapMode: Text.WordWrap
                 horizontalAlignment: Text.AlignRight
                 textFormat: Text.RichText
-                text: "USB Mode Switch"
+                text: "USB Switch"
                 color:Theme.highlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
