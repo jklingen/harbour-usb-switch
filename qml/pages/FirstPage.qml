@@ -21,8 +21,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-import org.nemomobile.dbus 2.0
-
 import "../components"
 
 Page {
@@ -42,6 +40,7 @@ Page {
 
         Column {
             id: column
+            y:(page.height-column.height)/2
 
             width: page.width
 
@@ -55,6 +54,12 @@ Page {
                 modeName: 'pc_suite'
                 text: 'PC Suite'
                 iconName: 'icon-l-computer'
+            }
+
+            ModeButton {
+                modeName: 'connection_sharing'
+                text: 'Connection Sharing'
+                iconName: 'icon-l-mobile-network'
             }
 
             ModeButton {

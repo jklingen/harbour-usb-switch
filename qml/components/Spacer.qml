@@ -21,26 +21,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-
-IconButton {
-    property string modeName
-    property string text
-    property string iconName
-
-    visible: usbControl.isModeAvailable(modeName)
-    width:parent.width
-    height: page.height / (usbControl.availableModes.length + 1)
-    icon.source:'image://theme/' + iconName + '?' + ((parent.pressed || usbControl.currentMode === modeName) ? Theme.highlightColor : Theme.primaryColor)
-    onClicked: usbControl.setMode(modeName)
-    Label {
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: (parent.pressed || usbControl.currentMode === parent.modeName) ? Theme.highlightColor : Theme.primaryColor
-        text:parent.text
-    }
-    Rectangle {
-        width:parent.width
-        height:parent.height-2*Theme.paddingLarge
-        color:Theme.secondaryHighlightColor
-        opacity: parent.pressed ? .25 : 0
-    }
+Item {
+    property int spacing: Theme.paddingLarge
+    width:spacing
+    height:spacing
 }

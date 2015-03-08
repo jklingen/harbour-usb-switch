@@ -28,10 +28,14 @@ CoverBackground {
         anchors.centerIn: parent
         spacing: Theme.paddingLarge
         Image {
-            y: Theme.paddingLarge*2
             anchors.horizontalCenter:parent.horizontalCenter
             visible: usbControl.currentMode === 'charging_only'
             source: "image://theme/icon-l-charging?" + Theme.highlightColor
+        }
+        Image {
+            anchors.horizontalCenter:parent.horizontalCenter
+            visible: usbControl.currentMode === 'connection_sharing'
+            source: "image://theme/icon-l-mobile-network?" + Theme.highlightColor
         }
         Image {
             anchors.horizontalCenter:parent.horizontalCenter
@@ -65,7 +69,7 @@ CoverBackground {
     }
 
     CoverActionList {
-        enabled: usbControl.currentMode === 'charging_only'
+        enabled: usbControl.currentMode === 'charging_only' || usbControl.currentMode === 'connection_sharing'
 
         CoverAction {
             iconSource: "image://theme/icon-l-computer"

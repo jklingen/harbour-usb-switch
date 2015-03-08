@@ -55,6 +55,13 @@ ApplicationWindow
             return currentMode;
         }
 
+        function isModeAvailable(mode) {
+            for(var i=0; i<availableModes.length; i++) {
+                if(availableModes[i] === mode) return true;
+            }
+            return false;
+        }
+
         function sig_usb_state_ind(mode) {
             console.log("mode has changed to " + mode)
             currentMode = mode;
@@ -65,7 +72,7 @@ ApplicationWindow
                 console.debug("requesting available modes");
                 typedCall('get_modes', [], function (modes) {
                     console.debug("available modes are " + modes);
-                    availableModes = modes;
+                    availableModes = modes.split(/,\s*/);
                 });
                 console.debug("requesting current mode");
                 typedCall('mode_request', [], function (mode) {
@@ -79,7 +86,7 @@ ApplicationWindow
 
     Timer {
         running: true
-        interval: 500
+        interval: 200
         onTriggered: {
             usbControl.init();
         }
