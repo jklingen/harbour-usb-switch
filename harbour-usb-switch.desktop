@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 X-Nemo-Application-Type=silica-qt5
-Name=harbour-usb-switch
+Name=USB Switch
 Icon=harbour-usb-switch
 Exec=harbour-usb-switch
 

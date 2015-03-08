@@ -27,7 +27,8 @@ OTHER_FILES += qml/harbour-usb-switch.qml \
     qml/js/usb-switch.js \
     qml/components/ModeButton.qml \
     qml/pages/InfoPage.qml \
-    resources/harbour-usb-switch.png
+    resources/harbour-usb-switch.png \
+    qml/components/Spacer.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
