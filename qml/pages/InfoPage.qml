@@ -37,119 +37,120 @@ Page {
 
             PageHeader {
                 id: title
-                title: 'About'
+                title: 'USB Switch'
             }
+
+
+
 
             Image {
                 id: logo
+                //x: Theme.paddingLarge
+                y: Theme.paddingLarge
                 anchors.top: title.bottom
-                x: Theme.paddingLarge
+                anchors.left: title.left
+                anchors.leftMargin: Theme.paddingLarge
                 source: 'qrc:/img/harbour-usb-switch.png'
                 width: 86
                 height: 86
             }
-
             Label {
-                id: appName
-                anchors.top: logo.top
-                anchors.right: parent.right
+                anchors.bottom: logo.bottom
+                anchors.right: title.right
                 anchors.rightMargin: Theme.paddingLarge
                 wrapMode: Text.WordWrap
-                horizontalAlignment: Text.AlignRight
                 textFormat: Text.RichText
-                text: "USB Switch"
+                horizontalAlignment: Text.AlignRight
+                text: "<strong>Version 0.2</strong><br>Copyright © 2014 - 2015<br>Jens Klingen"
                 color:Theme.highlightColor
-                font.pixelSize: Theme.fontSizeLarge
-            }
-
-            Label {
-                id: copyRight
-                anchors.top: appName.bottom
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-                wrapMode: Text.WordWrap
-                horizontalAlignment: Text.AlignRight
-                textFormat: Text.RichText
-                text: "<strong>Version 0.2</strong><br>Copyright © 2014 - 2015 Jens Klingen"
-                color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
             }
-            Label {
-                id: intro
-                anchors.top: copyRight.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: Theme.paddingLarge
-                wrapMode: Text.WordWrap
-                horizontalAlignment: Text.AlignHCenter
-                font.bold: true
-                color: Theme.highlightColor
-                text: "Ever wanted to switch USB mode\nwithout replugging the connector?"
-            }
 
-            Label {
-                id: description
-                anchors.top: intro.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: Theme.paddingLarge
-                wrapMode: Text.WordWrap
-                horizontalAlignment: Text.AlignHCenter
-                color: Theme.highlightColor
-                text: "Here you go."
-            }
+            Column {
+                anchors.top:logo.bottom
+                width:parent.width
+                spacing:Theme.paddingSmall
 
-            Label {
-                id: feedback
-                anchors.top: description.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: Theme.paddingLarge
-                horizontalAlignment: Text.AlignHCenter
-                font.bold: true
-                color: Theme.highlightColor
-                text: "Questions, problems, suggestions?"
-            }
+                Spacer {}
+                Label {
+                    width:parent.width
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    font.bold: true
+                    color: Theme.highlightColor
+                    text: "Ever wanted to switch USB mode\nwithout replugging the connector?"
+                }
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: Theme.paddingLarge
+                    wrapMode: Text.WordWrap
+                    color: Theme.highlightColor
+                    text: "Here you go."
+                }
 
-            Button {
-                id: github
-                anchors.top: feedback.bottom
-                anchors.right: parent.horizontalCenter
-                text: 'Github'
-                onClicked: Qt.openUrlExternally("https://github.com/jklingen/harbour-usb-switch/issues");
-            }
-            Button {
-                id: twitter
-                anchors.top: feedback.bottom
-                anchors.left: parent.horizontalCenter
-                text: 'Twitter'
-                onClicked: Qt.openUrlExternally("https://twitter.com/jklingen");
-            }
-
-            Label {
-                id: license
-                anchors.top: github.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: Theme.paddingLarge
-                horizontalAlignment: Text.AlignHCenter
-                font.bold: true
-                color: Theme.highlightColor
-                text: "Free & open source!"
-            }
+                Spacer {}
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: Theme.paddingLarge
+                    font.bold: true
+                    color: Theme.highlightColor
+                    text: "Questions, problems, suggestions?"
+                }
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    Button {
+                        text: 'Github'
+                        onClicked: Qt.openUrlExternally("https://github.com/jklingen/harbour-usb-switch/issues");
+                    }
+                    Button {
+                        text: 'Twitter'
+                        onClicked: Qt.openUrlExternally("https://twitter.com/jklingen");
+                    }
+                }
 
 
+                Spacer {}
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: Theme.paddingLarge
+                    font.bold: true
+                    color: Theme.highlightColor
+                    text: "Do you like this app?"
+                }
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: 'Buy me a beer :)'
+                    onClicked: {
+                        Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=paypal%40jklingen%2ecom&lc=US&item_name=Jens%20Klingen&no_note=0&cn=Message%20to%20Jens%3a&no_shipping=2&rm=1&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted&amount=3&item_name=A%20beer%20for%20USB%20Switch%20-%20cheers!");
+                        text = 'Cheers!'
+                    }
+                }
 
-            Button {
-                id:gpl
-                anchors.top: license.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: 'GPL version 3'
-                onClicked: Qt.openUrlExternally("http://www.gnu.org/licenses/gpl-3.0.txt");
+
+                Spacer {}
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: Theme.paddingLarge
+                    font.bold: true
+                    color: Theme.highlightColor
+                    text: "Free & open source!"
+                }
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: 'GPL version 3'
+                    onClicked: Qt.openUrlExternally("http://www.gnu.org/licenses/gpl-3.0.txt");
+                }
+
+
+
             }
 
 
         }
+
+
+
+
     }
 
 }
