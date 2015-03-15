@@ -1,0 +1,2 @@
+module harbour.usb.switch.dbus
+plugin nemodbus

@@ -140,6 +140,20 @@ Page {
                     text: 'GPL version 3'
                     onClicked: Qt.openUrlExternally("http://www.gnu.org/licenses/gpl-3.0.txt");
                 }
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: Theme.paddingLarge
+                    width:parent.width
+                    font.pixelSize: Theme.fontSizeSmall
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    textFormat: Text.RichText
+                    color: Theme.secondaryHighlightColor
+                    text: '<style>a:link { color: ' + Theme.primaryColor + '; }</style>' +
+                          qsTr('USB Switch uses %1, which is licensed under %2.')
+                            .arg('<a href="https://github.com/nemomobile/nemo-qml-plugin-dbus/">Nemo Mobile D-Bus QML Plugin</a>')
+                            .arg('<a href="https://www.gnu.org/licenses/lgpl-2.1.txt">LGPL v2.1</a>')
+                }
 
 
 

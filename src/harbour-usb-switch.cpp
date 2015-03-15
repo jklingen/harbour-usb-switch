@@ -34,6 +34,7 @@
 
 #include <QtQml>
 #include <sailfishapp.h>
+#include "src/dbus/declarativedbusinterface.h"
 
 int main(int argc, char *argv[])
 {
@@ -46,6 +47,7 @@ int main(int argc, char *argv[])
     //
     // To display the view, call "show()" (will show fullscreen on device).
 
+    qmlRegisterType<DeclarativeDBusInterface>("harbour.usb.switch.dbus", 2,0, "DBusInterface");
     return SailfishApp::main(argc, argv);
 }
 
